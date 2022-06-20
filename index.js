@@ -4,32 +4,29 @@ Author: Sany Mohammad Khaled
 Date: 20-06-2022
 */
 
-//Dependencies
+// Dependencies
 const http = require('http');
 
-//Scafolding
+// Scafolding
 const app = {};
 
-//Configuration 
+// Configuration
 app.config = {
-    port:3000,
+    port: 3000,
 };
 
-//create Server
-app.createServer = ()=>{
+// create Server
+app.createServer = () => {
     const server = http.createServer(handleRequests);
-    server.listen(app.config.port,()=>{
+    server.listen(app.config.port, () => {
         console.log(`Running on Port ${app.config.port}`);
-        
     });
+};
 
-}
+// Requests Handling
+const handleRequests = (req, res) => {
+    res.end('Hello World');
+};
 
-//Requests Handling
-handleRequests = (req,res)=>{
-    res.end('Hello World')
-}
-
-//Function Calling
+// Function Calling
 app.createServer();
-
